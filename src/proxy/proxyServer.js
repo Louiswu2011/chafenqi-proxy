@@ -1,6 +1,6 @@
 import http from "http";
 import url from "url";
-import { setValue, delValue, getValue } from "./appdb.js";
+import { delValue, getValue } from "./appdb.js";
 import net from "net";
 import {updateChunithmScore, updateMaimaiScore} from "./spider.js";
 
@@ -36,7 +36,7 @@ function checkHostValidity(host) {
     return CONNECTION_WHITE_LIST.find((value) => value === host)
 }
 function httpOptions(cReq, cRes) {
-    cReq.on("error", (e) => {
+    cReq.on("error", () => {
        console.log("cannot connect to client.")
     });
 
@@ -78,7 +78,7 @@ function httpOptions(cReq, cRes) {
 
                     // update score here
                     if (currentGame === "mai") {
-                        updateMaimaiScore(userToken, queryUrl, cRes)
+                        updateMaimaiScore(userToken, queryUrl, cRes, true)
                     } else if (currentGame === "chu") {
                         updateChunithmScore(userToken, queryUrl, cRes)
                     } else {

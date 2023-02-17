@@ -18,6 +18,9 @@
     "lowdb": "^5.1.0",
     "net": "^1.0.2",
     "node-fetch": "^3.3.0",
-    "node-fetch-cookies": "^2.0.4"
+    "node-fetch-cookies": "^2.0.4",
+    "node-html-parser": "^6.1.4",
+    "sequelize": "^6.28.0",
+    "sqlite3": "^5.1.4"
   }
 }
